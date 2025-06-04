@@ -9,7 +9,7 @@ function Header() {
         <Link to="/about">About</Link> */}
 
         <Menu size={20} />
-        <span className="text-xl font-extrabold">audiophile</span>
+        <span className="text-2xl font-extrabold">audiophile</span>
         <LucideShoppingCart size={20} />
       </nav>
     </div>
