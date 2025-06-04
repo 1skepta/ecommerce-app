@@ -1,4 +1,3 @@
-
 function Footer() {
   return (
     <div className="bg-[#191919] text-white">
@@ -16,7 +15,7 @@ function Footer() {
         facility - we’re open 7 days a week.
       </span>
       <span>Copyright 2025. All rights reserved</span>
-      <div></div>
+      <div>Facebook logo Twitter Instagram</div>
     </div>
   );
 }
