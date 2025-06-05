@@ -1,5 +1,6 @@
 import speaker from "../assets/home/mobile/image-speaker-zx9.png";
 import zx7 from "../assets/home/mobile/image-speaker-zx7.jpg";
+import earphone from "../assets/home/mobile/image-earphones-yx1.jpg";
 
 function HomeProducts() {
   return (
@@ -25,6 +26,16 @@ function HomeProducts() {
       >
         <h1 className="text-3xl font-semibold ">ZX7 SPEAKER</h1>
         <div className="mt-9 border border-black px-4 py-3">SEE PRODUCT</div>
+      </div>
+
+      <div className="w-5/6 mx-auto">
+        <div>
+          <img src={earphone} alt="earphones" className="rounded-xl" />
+        </div>
+        <div className="bg-[#f1f1f1] my-5 px-6 py-10 rounded-xl flex flex-col items-start justify-center">
+          <h1 className="text-3xl font-semibold ">YX1 EARPHONES</h1>
+          <div className="mt-9 border border-black px-4 py-3">SEE PRODUCT</div>
+        </div>
       </div>
     </div>
   );
