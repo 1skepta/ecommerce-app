@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeadOverlay from "../components/HeadOverlay";
 import xx99mobile from "../assets/home/tablet/image-header.jpg";
+import HomeProducts from "../components/HomeProducts";
 
 function Home() {
   return (
@@ -29,6 +30,8 @@ function Home() {
       </div>
 
       <HeadOverlay />
+      <HomeProducts />
+
       <Footer />
     </div>
   );
