@@ -1,4 +1,5 @@
-import { Menu, LucideShoppingCart, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import cart from "../assets/shared/desktop/icon-cart.svg";
 import { useState } from "react";
 import HeadOverlay from "./HeadOverlay";
 
@@ -14,7 +15,7 @@ function Header() {
         <span className="text-2xl font-extrabold tracking-wider">
           audiophile
         </span>
-        <LucideShoppingCart className="w-6 h-6" />
+        <img src={cart} alt="none" />
       </nav>
 
       <div

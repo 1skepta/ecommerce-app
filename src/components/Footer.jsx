@@ -1,4 +1,7 @@
 import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import facebook from "../assets/shared/desktop/icon-facebook.svg";
+import instagram from "../assets/shared/desktop/icon-instagram.svg";
+import twitter from "../assets/shared/desktop/icon-twitter.svg";
 
 function Footer() {
   return (
@@ -20,8 +23,9 @@ function Footer() {
         Copyright 2025. All rights reserved
       </span>
       <div className="flex">
-        <FaFacebook size={24} />
-        <FaInstagram size={24} /> <FaXTwitter size={24} />
+        <img src={twitter} alt="none" />
+        <img src={instagram} alt="none" />
+        <img src={facebook} alt="none" />
       </div>
     </div>
   );
