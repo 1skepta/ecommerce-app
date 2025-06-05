@@ -3,7 +3,7 @@ import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
 function Footer() {
   return (
     <div className="bg-[#191919] text-white mb-24 flex flex-col items-center py-14 px-6">
-      <span className="text-2xl font-extrabold">audiophile</span>
+      <span className="text-2xl font-extrabold tracking-wider">audiophile</span>
       <ul className="flex flex-col items-center my-10 leading-12">
         <li>HOME</li>
         <li>HEADPHONES</li>
