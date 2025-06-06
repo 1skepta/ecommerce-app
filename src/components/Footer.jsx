@@ -22,7 +22,7 @@ function Footer() {
         </p>
       </div>
 
-      <div className="bg-[#191919] text-white mb-24 flex flex-col items-center py-14 px-6">
+      <div className="bg-[#191919] text-white flex flex-col items-center py-14 px-6">
         <span className="text-2xl font-extrabold tracking-wider">
           audiophile
         </span>
