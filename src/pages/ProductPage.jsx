@@ -58,7 +58,6 @@ function ProductPage() {
         <p className="mt-4 text-gray-600">{product.description}</p>
         <p className="text-lg font-semibold my-4">${product.price}</p>
 
-        {/* Quantity and Add to Cart */}
         <div className="flex items-center space-x-4 mb-8">
           <div className="flex border border-gray-400 rounded items-center">
             <button className="px-4 py-2 text-xl" onClick={handleDecrement}>
@@ -74,7 +73,6 @@ function ProductPage() {
           </button>
         </div>
 
-        {/* Features */}
         <div className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">FEATURES</h2>
           <p className="text-gray-600 whitespace-pre-line">
@@ -82,7 +80,6 @@ function ProductPage() {
           </p>
         </div>
 
-        {/* In the Box */}
         <div className="mb-8">
           <h2 className="text-2xl font-semibold mb-2">IN THE BOX</h2>
           <ul className="text-gray-600">
@@ -97,7 +94,6 @@ function ProductPage() {
           </ul>
         </div>
 
-        {/* Gallery */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
           <img
             src={resolveImage(gallery.first.mobile)}
