@@ -60,7 +60,7 @@ function Footer() {
           facility - we’re open 7 days a week.
         </span>
         <span className="my-10 text-[#ffffff80]">
-          Copyright {currentYear} SKEPTAG. All rights reserved
+          Copyright {currentYear} SKEPTA. All rights reserved
         </span>
         <div className="flex">
           <img src={twitter} alt="none" />
