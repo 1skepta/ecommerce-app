@@ -1,6 +1,6 @@
 import xx99mobile from "../assets/home/tablet/image-header.jpg";
 
-function HomeAd() {
+function HomeAd({ onSeeProduct }) {
   return (
     <div className="bg-[#191919] px-6 pb-4">
       <div
@@ -14,7 +14,12 @@ function HomeAd() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music artist
           </p>
-          <div className="mt-12 bg-[#d87d4a] text-white p-4">SEE PRODUCT</div>
+          <button
+            onClick={onSeeProduct}
+            className="mt-12 bg-[#d87d4a] text-white p-4"
+          >
+            SEE PRODUCT
+          </button>
         </div>
       </div>
     </div>
