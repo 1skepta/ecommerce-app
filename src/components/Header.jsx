@@ -2,9 +2,11 @@ import { Menu, X } from "lucide-react";
 import cart from "../assets/shared/desktop/icon-cart.svg";
 import { useState } from "react";
 import HeadOverlay from "./HeadOverlay";
+import { useCart } from "../utils/CartContext";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartCount } = useCart();
 
   return (
     <div className="relative">
@@ -15,7 +17,14 @@ function Header() {
         <span className="text-2xl font-extrabold tracking-wider">
           audiophile
         </span>
-        <img src={cart} alt="none" />
+        <div className="relative">
+          <img src={cart} alt="Cart" className="w-6 h-6" />
+          {cartCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-[#d87d4a] text-white text-[10px] font-bold rounded-full px-[7px] py-[2px] leading-none">
+              {cartCount}
+            </span>
+          )}
+        </div>
       </nav>
 
       <div

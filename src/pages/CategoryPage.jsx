@@ -4,6 +4,7 @@ import { resolveImage } from "../utils/resolveImage";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeadOverlay from "../components/HeadOverlay";
+import FooterOverlay from "../components/FooterOverlay";
 
 function CategoryPage() {
   const { category } = useParams();
@@ -67,6 +68,7 @@ function CategoryPage() {
         ))}
       </div>
       <HeadOverlay />
+      <FooterOverlay />
       <Footer />
     </>
   );

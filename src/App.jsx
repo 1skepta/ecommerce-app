@@ -3,17 +3,20 @@ import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
 import ScrollToTop from "./utils/ScrollToTop";
 import CategoryPage from "./pages/CategoryPage";
+import { CartProvider } from "./utils/CartContext";
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
-        <Route path="/category/:category" element={<CategoryPage />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

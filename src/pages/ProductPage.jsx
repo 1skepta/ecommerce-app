@@ -5,12 +5,15 @@ import Header from "../components/Header";
 import products from "../data";
 import { resolveImage } from "../utils/resolveImage";
 import HeadOverlay from "../components/HeadOverlay";
+import FooterOverlay from "../components/FooterOverlay";
+import { useCart } from "../utils/CartContext";
 
 function ProductPage() {
   const { productId } = useParams();
   const navigate = useNavigate();
   const product = products.find((item) => item.slug === productId);
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const handleIncrement = () => setQuantity((q) => q + 1);
   const handleDecrement = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
@@ -68,7 +71,10 @@ function ProductPage() {
               +
             </button>
           </div>
-          <button className="bg-[#d87d4a] text-white px-6 py-2 rounded">
+          <button
+            onClick={() => addToCart(quantity)}
+            className="bg-[#d87d4a] text-white px-6 py-2 rounded"
+          >
             ADD TO CART
           </button>
         </div>
@@ -114,6 +120,7 @@ function ProductPage() {
       </div>
 
       <HeadOverlay />
+      <FooterOverlay />
       <Footer />
     </>
   );

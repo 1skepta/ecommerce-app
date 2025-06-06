@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import HeadOverlay from "../components/HeadOverlay";
 import HomeProducts from "../components/HomeProducts";
 import HomeAd from "../components/HomeAd";
+import FooterOverlay from "../components/FooterOverlay";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <HomeAd />
       <HeadOverlay />
       <HomeProducts />
+      <FooterOverlay />
       <Footer />
     </div>
   );
