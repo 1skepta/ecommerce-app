@@ -1,6 +1,10 @@
 import xx99mobile from "../assets/home/tablet/image-header.jpg";
+import { useNavigate } from "react-router-dom";
 
-function HomeAd({ onSeeProduct }) {
+function HomeAd() {
+  const navigate = useNavigate();
+  const productSlug = "xx99-mark-two-headphones";
+
   return (
     <div className="bg-[#191919] px-6 pb-4">
       <div
@@ -15,7 +19,7 @@ function HomeAd({ onSeeProduct }) {
             made for the passionate music artist
           </p>
           <button
-            onClick={onSeeProduct}
+            onClick={() => navigate(`/product/${productSlug}`)}
             className="mt-12 bg-[#d87d4a] text-white p-4"
           >
             SEE PRODUCT
