@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import products from "../data";
 
 function ProductPage() {
@@ -23,6 +25,7 @@ function ProductPage() {
 
   return (
     <>
+      <Header />
       <div className="p-6 max-w-4xl mx-auto">
         <img
           src={correctedImage}
@@ -91,6 +94,7 @@ function ProductPage() {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 }
