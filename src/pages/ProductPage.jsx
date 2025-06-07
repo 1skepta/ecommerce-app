@@ -72,7 +72,7 @@ function ProductPage() {
             </button>
           </div>
           <button
-            onClick={() => addToCart(quantity)}
+            onClick={() => addToCart(product, quantity)}
             className="bg-[#d87d4a] text-white px-6 py-2 rounded"
           >
             ADD TO CART
