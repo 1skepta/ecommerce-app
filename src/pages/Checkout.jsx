@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import cod from "../assets/checkout/icon-cash-on-delivery.svg";
 
 function Checkout() {
   const navigate = useNavigate();
@@ -31,7 +32,6 @@ function Checkout() {
     const newErrors = {};
 
     if (!form.name.trim()) newErrors.name = "Name is required";
-
     if (!form.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(form.email)) {
@@ -53,7 +53,6 @@ function Checkout() {
     }
 
     if (!form.city.trim()) newErrors.city = "City is required";
-
     if (!form.country.trim()) newErrors.country = "Country is required";
 
     if (form.paymentMethod === "momo") {
@@ -69,7 +68,6 @@ function Checkout() {
     }
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
@@ -83,12 +81,12 @@ function Checkout() {
   return (
     <div className="min-h-screen bg-[#fafafa]">
       <Header />
-      <div className="px-4 sm:px-6 pt-6 max-w-2xl mx-auto">
+      <div className="px-4 sm:px-8 pt-6 max-w-xl mx-auto">
         <button onClick={() => navigate(-1)} className="text-gray-500 mb-6">
           &larr; Go Back
         </button>
 
-        <div className="bg-white rounded-xl shadow-md p-6 sm:p-8">
+        <div className="bg-white rounded-xl shadow-md p-6 sm:p-10 mb-12">
           <h1 className="text-3xl font-bold mb-8">CHECKOUT</h1>
 
           <form onSubmit={handleSubmit} noValidate>
@@ -103,11 +101,7 @@ function Checkout() {
                 label: "Email Address",
                 placeholder: "prospaul999@gmail.com",
               },
-              {
-                id: "phone",
-                label: "Phone Number",
-                placeholder: "0594760444",
-              },
+              { id: "phone", label: "Phone Number", placeholder: "0594760444" },
             ].map(({ id, label, placeholder }) => (
               <div className="mb-6" key={id}>
                 <label
@@ -124,8 +118,8 @@ function Checkout() {
                 <input
                   id={id}
                   name={id}
-                  value={form[id]}
                   placeholder={placeholder}
+                  value={form[id]}
                   onChange={handleChange}
                   className={`w-full border rounded px-3 py-2 focus:outline-none ${
                     errors[id] ? "border-red-600" : "border-gray-300"
@@ -215,12 +209,10 @@ function Checkout() {
               />
             </div>
 
-            {/* PAYMENT DETAILS */}
             <h2 className="text-[#d87d4a] font-semibold mb-4">
               PAYMENT DETAILS
             </h2>
 
-            {/* Payment Method */}
             <div className="mb-4">
               <p className="font-semibold mb-2">Payment Method</p>
               <label className="inline-flex items-center mr-6">
@@ -249,7 +241,6 @@ function Checkout() {
 
             {form.paymentMethod === "momo" ? (
               <>
-                {/* MOMO Number */}
                 <div className="mb-4">
                   <label
                     htmlFor="momoNumber"
@@ -276,7 +267,6 @@ function Checkout() {
                   />
                 </div>
 
-                {/* MOMO Network */}
                 <div className="mb-6">
                   <label
                     htmlFor="momoNetwork"
@@ -291,22 +281,26 @@ function Checkout() {
                       {errors.momoNetwork}
                     </p>
                   )}
-                  <input
+                  <select
                     id="momoNetwork"
                     name="momoNetwork"
-                    placeholder="MTN"
                     value={form.momoNetwork}
                     onChange={handleChange}
                     className={`w-full border rounded px-3 py-2 focus:outline-none ${
                       errors.momoNetwork ? "border-red-600" : "border-gray-300"
                     }`}
-                  />
+                  >
+                    <option value="">Select Network</option>
+                    <option value="MTN">MTN</option>
+                    <option value="TELECEL">TELECEL</option>
+                    <option value="AIRTEL TIGO">AIRTEL TIGO</option>
+                  </select>
                 </div>
               </>
             ) : (
               <div className="flex items-center gap-4 mb-6">
                 <img
-                  src="your-image-src-here.png"
+                  src={cod}
                   alt="Cash on Delivery"
                   className="w-20 h-20 object-contain"
                 />
@@ -318,10 +312,9 @@ function Checkout() {
               </div>
             )}
 
-            {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-[#d87d4a] text-white py-3 rounded hover:opacity-90 font-semibold"
+              className="my-3 mb-7 w-full bg-[#d87d4a] text-white py-3 rounded hover:opacity-90 font-semibold"
             >
               Checkout
             </button>
