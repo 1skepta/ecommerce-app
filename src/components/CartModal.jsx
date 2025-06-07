@@ -1,8 +1,11 @@
 import { useCart } from "../utils/CartContext";
 import { useEffect } from "react";
 import { resolveImage } from "../utils/resolveImage";
+import { useNavigate } from "react-router-dom";
 
 function CartModal({ onClose }) {
+  const navigate = useNavigate();
+
   const { cartItems, cartCount, cartTotal, updateQuantity, removeAll } =
     useCart();
 
@@ -81,7 +84,13 @@ function CartModal({ onClose }) {
           <p className="text-lg font-bold">${cartTotal}</p>
         </div>
 
-        <button className="mt-6 bg-[#d87d4a] w-full text-white py-3 rounded hover:opacity-90">
+        <button
+          onClick={() => {
+            onClose();
+            navigate("/checkout");
+          }}
+          className="mt-6 bg-[#d87d4a] w-full text-white py-3 rounded hover:opacity-90"
+        >
           Checkout
         </button>
       </div>
