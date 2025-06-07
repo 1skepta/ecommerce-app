@@ -25,9 +25,9 @@ function CartModal({ onClose }) {
   return (
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-50 bg-black bg-opacity-30 flex justify-center px-4"
+      className="fixed inset-0 z-50 bg-black/50 flex items-start justify-center overflow-y-auto px-4 pt-28"
     >
-      <div className="bg-white mt-28 w-full max-w-md rounded-lg p-6 shadow-xl">
+      <div className="bg-white w-full max-w-md rounded-lg p-6 shadow-xl">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold">CART ({cartCount})</h2>
           <button
