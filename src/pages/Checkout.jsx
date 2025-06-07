@@ -224,7 +224,7 @@ function Checkout() {
                   onChange={handleChange}
                   className="mr-2"
                 />
-                Momo
+                Electronic Cash
               </label>
               <label className="inline-flex items-center">
                 <input
