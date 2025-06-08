@@ -1,12 +1,10 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import facebook from "../assets/shared/desktop/icon-facebook.svg";
 import instagram from "../assets/shared/desktop/icon-instagram.svg";
 import twitter from "../assets/shared/desktop/icon-twitter.svg";
 
 function Footer() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const currentYear = new Date().getFullYear();
 
   const footerLinks = [
     { name: "HOME", path: "/" },
@@ -15,63 +13,68 @@ function Footer() {
     { name: "EARPHONES", path: "/category/earphones" },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const currentYear = new Date().getFullYear();
+
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
 
   return (
-    <div className="bg-[#191919] text-white py-14 px-6 md:px-20">
-      <div className="flex flex-col md:flex-row justify-between gap-10">
-        <div className="flex-1">
+    <>
+      <div className="bg-[#191919] text-white flex flex-col items-center py-14 px-6 md:px-[8%] ">
+        <div className="md:flex md:justify-between md:items-center md:w-full cursor-pointer">
           <span
+            className="text-2xl font-extrabold tracking-wider"
             onClick={() => navigate("/")}
-            className="text-2xl font-extrabold cursor-pointer tracking-wider block mb-6"
           >
             audiophile
           </span>
-          <p className="text-[#ffffff80] text-sm mb-6 max-w-md">
-            Audiophile is an all-in-one stop to fulfill your audio needs. We're
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility - we’re open 7 days a week.
-          </p>
-          <p className="text-[#ffffff80] text-sm">
-            Copyright {currentYear} SKEPTA. All rights reserved.
-          </p>
-        </div>
-
-        <div className="flex-1 flex flex-col items-start md:items-end gap-6">
-          <ul className="flex flex-col md:flex-row gap-4 text-sm tracking-widest">
+          <ul className="flex flex-col items-center my-10 leading-12 md:flex-row">
             {footerLinks.map((link) => (
               <li
                 key={link.name}
-                onClick={() => navigate(link.path)}
-                className={`cursor-pointer hover:text-[#d87d4a] ${
-                  isActive(link.path) ? "text-[#d87d4a]" : ""
-                }`}
+                onClick={() => handleNavigate(link.path)}
+                style={{ cursor: "pointer" }}
+                className="md:ml-10"
               >
                 {link.name}
               </li>
             ))}
           </ul>
-          <div className="flex gap-6 mt-4">
+        </div>
+        <div className="md:flex-row md:justify-between items-center flex flex-col">
+          <div className="md:flex-col md:flex md:w-1/2 text-center md:text-left">
+            <span className="text-[#ffffff80] text-center md:text-left">
+              Audiophile is an all in one stop to fulfill your audio needs.
+              We're a small team of music lovers and sound specialists who are
+              devoted to helping you getthe most out of personal audio. Come and
+              visit our demo facility - we’re open 7 days a week.
+            </span>
+            <span className="text-[#ffffff80] md:mt-8">
+              Copyright {currentYear} SKEPTA. All rights reserved
+            </span>
+          </div>
+
+          <div className="flex mt-8 md:mt-0">
             <img
-              src={facebook}
-              alt="Facebook"
-              className="cursor-pointer hover:opacity-80"
+              src={twitter}
+              alt="none"
+              className="md:w-7 md:h-7 cursor-pointer"
             />
             <img
               src={instagram}
-              alt="Instagram"
-              className="cursor-pointer hover:opacity-80"
+              alt="none"
+              className="md:w-7 md:h-7 mx-6 cursor-pointer"
             />
             <img
-              src={twitter}
-              alt="Twitter"
-              className="cursor-pointer hover:opacity-80"
+              src={facebook}
+              alt="none"
+              className="md:w-7 md:h-7 cursor-pointer"
             />
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
