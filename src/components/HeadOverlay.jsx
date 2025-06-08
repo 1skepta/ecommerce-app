@@ -12,7 +12,7 @@ function HeadOverlay() {
   };
 
   return (
-    <div className="flex flex-col py-12 pt-16 md:flex-row md:w-5/6 md:mx-auto ">
+    <div className="flex flex-col py-12 pt-16 md:flex-row md:space-x-6 md:w-5/6 md:mx-auto">
       {[
         { name: "earphones", img: earphones },
         { name: "headphones", img: headphones },
@@ -21,7 +21,7 @@ function HeadOverlay() {
         <div
           key={item.name}
           onClick={() => handleNavigate(item.name)}
-          className="flex flex-col items-center bg-[#f1f1f1] mx-auto w-5/6 rounded-xl relative mb-16 cursor-pointer transition hover:scale-105"
+          className="flex flex-col items-center bg-[#f1f1f1] flex-1 rounded-xl relative mb-16 md:mb-0 cursor-pointer transition hover:scale-105"
         >
           <img
             src={item.img}
