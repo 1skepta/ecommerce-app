@@ -1,9 +1,14 @@
 import { useCart } from "../utils/CartContext";
 import { useEffect } from "react";
 import { resolveImage } from "../utils/resolveImage";
+import { Download } from "lucide-react";
+import jsPDF from "jspdf";
+import { useNavigate } from "react-router-dom";
 
 function OrderSummary({ onClose }) {
   const { cartItems, cartTotal } = useCart();
+  const navigate = useNavigate();
+  const { removeAll } = useCart();
 
   const shippingCost = 50;
   const vat = cartTotal * 0.2;
@@ -23,6 +28,37 @@ function OrderSummary({ onClose }) {
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) onClose();
+  };
+
+  const downloadOrderPDF = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text("Order Summary", 20, 20);
+
+    doc.setFontSize(12);
+    let y = 30;
+    cartItems.forEach((item, index) => {
+      doc.text(
+        `${index + 1}. ${item.name} - ${item.quantity} x $${item.price} = $${(
+          item.quantity * item.price
+        ).toFixed(2)}`,
+        20,
+        y
+      );
+      y += 10;
+    });
+
+    y += 10;
+    doc.text(`Product Total: $${cartTotal.toFixed(2)}`, 20, y);
+    y += 10;
+    doc.text(`Shipping: $${shippingCost.toFixed(2)}`, 20, y);
+    y += 10;
+    doc.text(`VAT (20%): $${vat.toFixed(2)}`, 20, y);
+    y += 10;
+    doc.setFont(undefined, "bold");
+    doc.text(`Grand Total: $${grandTotal.toFixed(2)}`, 20, y);
+
+    doc.save("order-summary.pdf");
   };
 
   return (
@@ -83,12 +119,25 @@ function OrderSummary({ onClose }) {
           </div>
         </div>
 
-        <button
-          onClick={onClose}
-          className="mt-6 bg-[#d87d4a] w-full text-white py-3 rounded hover:opacity-90"
-        >
-          Back to Shop
-        </button>
+        <div className="flex gap-4 mt-6">
+          <button
+            onClick={downloadOrderPDF}
+            className="flex items-center gap-2 bg-gray-100 text-gray-700 py-3 px-4 rounded hover:bg-gray-200 w-full justify-center"
+          >
+            <Download className="w-5 h-5" />
+            Download PDF
+          </button>
+          <button
+            onClick={() => {
+              removeAll();
+              onClose();
+              navigate("/");
+            }}
+            className="bg-[#d87d4a] text-white py-3 px-4 rounded hover:opacity-90 w-full"
+          >
+            Back to Shop
+          </button>
+        </div>
       </div>
     </div>
   );
