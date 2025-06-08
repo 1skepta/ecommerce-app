@@ -2,7 +2,7 @@ import { useCart } from "../utils/CartContext";
 import { useEffect } from "react";
 import { resolveImage } from "../utils/resolveImage";
 import { useNavigate } from "react-router-dom";
-import { ShoppingCart } from "lucide-react"; 
+import { ShoppingCart } from "lucide-react";
 
 function CartModal({ onClose }) {
   const navigate = useNavigate();

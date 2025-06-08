@@ -3,6 +3,7 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import cod from "../assets/checkout/icon-cash-on-delivery.svg";
+import OrderSummary from "../components/OrderSummary";
 
 function Checkout() {
   const navigate = useNavigate();
@@ -21,6 +22,8 @@ function Checkout() {
   });
 
   const [errors, setErrors] = useState({});
+
+  const [showSummary, setShowSummary] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -74,13 +77,14 @@ function Checkout() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      alert("Checkout successful!");
+      setShowSummary(true);
     }
   };
 
   return (
     <div className="min-h-screen bg-[#fafafa]">
       <Header />
+      {showSummary && <OrderSummary onClose={() => setShowSummary(false)} />}
       <div className="px-4 sm:px-8 pt-6 max-w-xl mx-auto">
         <button onClick={() => navigate(-1)} className="text-gray-500 mb-6">
           &larr; Go Back
