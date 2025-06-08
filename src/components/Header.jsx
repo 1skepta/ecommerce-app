@@ -4,11 +4,16 @@ import { useState } from "react";
 import HeadOverlay from "./HeadOverlay";
 import { useCart } from "../utils/CartContext";
 import CartModal from "./CartModal";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const { cartCount } = useCart();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="relative">
@@ -17,16 +22,47 @@ function Header() {
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
-          <span className="text-2xl font-extrabold tracking-wider">
+          <span
+            className="text-2xl font-extrabold tracking-wider cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             audiophile
           </span>
         </div>
 
         <ul className="hidden md:flex gap-8 text-sm tracking-widest">
-          <li className="cursor-pointer hover:text-[#d87d4a]">HOME</li>
-          <li className="cursor-pointer hover:text-[#d87d4a]">HEADPHONES</li>
-          <li className="cursor-pointer hover:text-[#d87d4a]">SPEAKERS</li>
-          <li className="cursor-pointer hover:text-[#d87d4a]">EARPHONES</li>
+          <li
+            className={`cursor-pointer hover:text-[#d87d4a] ${
+              isActive("/") ? "text-[#d87d4a]" : ""
+            }`}
+            onClick={() => navigate("/")}
+          >
+            HOME
+          </li>
+          <li
+            className={`cursor-pointer hover:text-[#d87d4a] ${
+              isActive("/category/headphones") ? "text-[#d87d4a]" : ""
+            }`}
+            onClick={() => navigate("/category/headphones")}
+          >
+            HEADPHONES
+          </li>
+          <li
+            className={`cursor-pointer hover:text-[#d87d4a] ${
+              isActive("/category/speakers") ? "text-[#d87d4a]" : ""
+            }`}
+            onClick={() => navigate("/category/speakers")}
+          >
+            SPEAKERS
+          </li>
+          <li
+            className={`cursor-pointer hover:text-[#d87d4a] ${
+              isActive("/category/earphones") ? "text-[#d87d4a]" : ""
+            }`}
+            onClick={() => navigate("/category/earphones")}
+          >
+            EARPHONES
+          </li>
         </ul>
 
         <div
