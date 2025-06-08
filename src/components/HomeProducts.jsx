@@ -21,7 +21,7 @@ function HomeProducts() {
             </p>
             <button
               onClick={() => navigate("/product/zx9-speaker")}
-              className="mt-12 bg-[#191919] text-white px-4 py-3 cursor-pointer"
+              className="mt-12 bg-[#191919] text-white px-4 py-3 cursor-pointer hover:bg-transparent hover:border hover:border-white"
             >
               SEE PRODUCT
             </button>
@@ -36,13 +36,13 @@ function HomeProducts() {
         <h1 className="text-3xl font-semibold">ZX7 SPEAKER</h1>
         <button
           onClick={() => navigate("/product/zx7-speaker")}
-          className="mt-9 border border-black px-4 py-3"
+          className="mt-9 border border-black px-4 py-3 hover:bg-black hover:text-white cursor-pointer"
         >
           SEE PRODUCT
         </button>
       </div>
 
-      <div className="w-5/6 mx-auto md:flex md:justify-between md:pt-20">
+      <div className="w-5/6 mx-auto md:flex md:justify-between md:">
         <div>
           <img src={earphone} alt="YX1 Earphones" className="rounded-xl" />
         </div>

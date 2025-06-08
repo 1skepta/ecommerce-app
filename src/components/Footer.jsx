@@ -34,8 +34,7 @@ function Footer() {
               <li
                 key={link.name}
                 onClick={() => handleNavigate(link.path)}
-                style={{ cursor: "pointer" }}
-                className="md:ml-10"
+                className="md:ml-10 hover:text-[#d87d4a] cursor-pointer"
               >
                 {link.name}
               </li>
