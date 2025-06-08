@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <div className="relative">
-      <nav className="bg-[#191919] text-white flex items-center justify-between py-6 px-5 md:px-10 border-b border-white/10">
+      <nav className="bg-[#191919] text-white flex items-center justify-between py-6 px-5 md:px-[8%] md:py-8 border-b border-white/10">
         <div className="flex items-center gap-4">
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
