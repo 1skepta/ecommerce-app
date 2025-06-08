@@ -2,8 +2,8 @@ import gear from "../assets/shared/mobile/image-best-gear.jpg";
 
 function FooterOverlay() {
   return (
-    <div className="w-5/6 mx-auto text-center md:flex md:items-center md:flex-row-reverse">
-      <img src={gear} alt="gear" className="rounded-xl md:w-1/2 md:ml-10" />
+    <div className="w-5/6 mx-auto text-center md:flex md:items-center md:flex-row-reverse md:py-20">
+      <img src={gear} alt="gear" className="rounded-xl md:w-1/2 md:ml-30" />
       <div>
         <h1 className="my-6 text-3xl font-semibold md:text-left">
           BRINGING YOU THE <span className="text-[#d87d4a]">BEST</span> AUDIO

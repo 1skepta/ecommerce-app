@@ -12,7 +12,7 @@ function HeadOverlay() {
   };
 
   return (
-    <div className="flex flex-col py-12 pt-16">
+    <div className="flex flex-col py-12 pt-16 md:flex-row md:w-5/6 md:mx-auto ">
       {[
         { name: "earphones", img: earphones },
         { name: "headphones", img: headphones },
