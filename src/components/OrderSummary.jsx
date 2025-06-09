@@ -58,13 +58,13 @@ function OrderSummary({ onClose }) {
     doc.setFont(undefined, "bold");
     doc.text(`Grand Total: $${grandTotal.toFixed(2)}`, 20, y);
 
-    doc.save("order-summary.pdf");
+    doc.save("your-order-today.pdf");
   };
 
   return (
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-50 bg-black/50 flex items-start justify-center overflow-y-auto px-4 pt-28"
+      className="fixed inset-0 z-50 bg-black/50 flex items-start justify-center overflow-y-auto px-4 pt-7 pb-28 "
     >
       <div className="bg-white w-full max-w-md rounded-lg p-6 shadow-xl">
         <h2 className="text-xl font-bold mb-6">Order Confirmation</h2>
@@ -89,7 +89,7 @@ function OrderSummary({ onClose }) {
                 <div>
                   <p className="font-semibold">{item.name}</p>
                   <p className="text-gray-500 text-sm">
-                    {item.quantity}x ${item.price}
+                    {item.quantity} items of ${item.price} each
                   </p>
                 </div>
               </div>
@@ -122,10 +122,10 @@ function OrderSummary({ onClose }) {
         <div className="flex gap-4 mt-6">
           <button
             onClick={downloadOrderPDF}
-            className="flex items-center gap-2 bg-gray-100 text-gray-700 py-3 px-4 rounded hover:bg-gray-200 w-full justify-center"
+            className="cursor-pointer flex items-center gap-2 bg-gray-100 text-gray-700 py-3 px-4 rounded hover:bg-gray-200 w-full justify-center"
           >
             <Download className="w-5 h-5" />
-            Download PDF
+            Download
           </button>
           <button
             onClick={() => {
@@ -133,7 +133,7 @@ function OrderSummary({ onClose }) {
               onClose();
               navigate("/");
             }}
-            className="bg-[#d87d4a] text-white py-3 px-4 rounded hover:opacity-90 w-full"
+            className="cursor-pointer bg-[#d87d4a] text-white py-3 px-4 rounded hover:opacity-90 w-full"
           >
             Back to Shop
           </button>

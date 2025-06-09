@@ -86,7 +86,10 @@ function Checkout() {
       <Header />
       {showSummary && <OrderSummary onClose={() => setShowSummary(false)} />}
       <div className="px-4 sm:px-8 pt-6 max-w-xl mx-auto">
-        <button onClick={() => navigate(-1)} className="text-gray-500 mb-6">
+        <button
+          onClick={() => navigate(-1)}
+          className="text-gray-500 mb-6 md:hidden"
+        >
           &larr; Go Back
         </button>
 
@@ -219,7 +222,7 @@ function Checkout() {
 
             <div className="mb-4">
               <p className="font-semibold mb-2">Payment Method</p>
-              <label className="inline-flex items-center mr-6">
+              <label className="inline-flex items-center mr-6 cursor-pointer">
                 <input
                   type="radio"
                   name="paymentMethod"
@@ -230,7 +233,7 @@ function Checkout() {
                 />
                 Electronic Cash
               </label>
-              <label className="inline-flex items-center">
+              <label className="inline-flex items-center cursor-pointer">
                 <input
                   type="radio"
                   name="paymentMethod"
@@ -290,7 +293,7 @@ function Checkout() {
                     name="momoNetwork"
                     value={form.momoNetwork}
                     onChange={handleChange}
-                    className={`w-full border rounded px-3 py-2 focus:outline-none ${
+                    className={`w-full border rounded px-3 py-2 focus:outline-none cursor-pointer ${
                       errors.momoNetwork ? "border-red-600" : "border-gray-300"
                     }`}
                   >
@@ -318,7 +321,7 @@ function Checkout() {
 
             <button
               type="submit"
-              className="my-3 mb-7 w-full bg-[#d87d4a] text-white py-3 rounded hover:opacity-90 font-semibold"
+              className="my-3 mb-7 w-full bg-[#d87d4a] text-white py-3 rounded hover:opacity-90 cursor-pointer font-semibold"
             >
               Checkout
             </button>

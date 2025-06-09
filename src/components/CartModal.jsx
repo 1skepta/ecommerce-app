@@ -37,7 +37,7 @@ function CartModal({ onClose }) {
           {cartCount > 0 && (
             <button
               onClick={removeAll}
-              className="text-sm text-gray-500 hover:underline"
+              className="text-sm text-gray-500 hover:underline cursor-pointer"
             >
               Remove all
             </button>
@@ -77,14 +77,14 @@ function CartModal({ onClose }) {
                   <div className="flex items-center border rounded overflow-hidden">
                     <button
                       onClick={() => updateQuantity(item.id, -1)}
-                      className="px-2 text-sm font-bold"
+                      className="px-2 text-sm font-bold cursor-pointer"
                     >
                       -
                     </button>
                     <span className="px-3 text-sm">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.id, 1)}
-                      className="px-2 text-sm font-bold"
+                      className="px-2 text-sm font-bold cursor-pointer"
                     >
                       +
                     </button>
@@ -103,7 +103,7 @@ function CartModal({ onClose }) {
                 onClose();
                 navigate("/checkout");
               }}
-              className="mt-6 bg-[#d87d4a] w-full text-white py-3 rounded hover:opacity-90"
+              className="mt-6 bg-[#d87d4a] w-full text-white py-3 rounded cursor-pointer hover:opacity-90"
             >
               Checkout
             </button>
