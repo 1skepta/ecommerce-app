@@ -8,7 +8,6 @@ function HomeAd() {
 
   return (
     <div className="bg-[#191919] px-6 pb-4 md:px-[8%]">
-      {/* Mobile background (default) */}
       <div
         className="bg-cover bg-center flex items-center justify-center text-white text-center pb-20 h-[500px] md:hidden"
         style={{ backgroundImage: `url(${xx99mobile})` }}
@@ -32,8 +31,6 @@ function HomeAd() {
           </button>
         </div>
       </div>
-
-      {/* Desktop/Tablet background (md and up) */}
       <div
         className="bg-cover bg-center hidden md:flex items-center justify-start text-white text-left pb-20 h-[500px]"
         style={{ backgroundImage: `url(${xx99desktop})` }}
