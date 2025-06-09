@@ -33,7 +33,7 @@ function OrderSummary({ onClose }) {
   const downloadOrderPDF = () => {
     const doc = new jsPDF();
     doc.setFontSize(18);
-    doc.text("Order Summary", 20, 20);
+    doc.text("PAUL PROSPER LAWER SHOP ORDER SUMMARY", 20, 20);
 
     doc.setFontSize(12);
     let y = 30;
