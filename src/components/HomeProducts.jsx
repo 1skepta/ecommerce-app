@@ -59,7 +59,7 @@ function HomeProducts() {
         </button>
       </div>
 
-      <div className="w-5/6 mx-auto md:flex md:justify-between md:">
+      <div className="w-5/6 mx-auto md:flex md:justify-between">
         <div>
           <img src={earphone} alt="YX1 Earphones" className="rounded-xl" />
         </div>

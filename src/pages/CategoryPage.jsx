@@ -24,7 +24,7 @@ function CategoryPage() {
           </h1>
           <button
             onClick={() => navigate("/")}
-            className="mt-4 text-[#d87d4a] underline"
+            className="mt-4 text-[#d87d4a] underline cursor-pointer"
           >
             Back to home
           </button>
@@ -40,32 +40,40 @@ function CategoryPage() {
       <div className="bg-black text-white text-center py-10 mb-8">
         <h1 className="text-3xl font-semibold uppercase">{category}</h1>
       </div>
-      <div className="px-6">
+      <div className="px-6 md:hidden">
         <button onClick={() => navigate(-1)} className="text-gray-500">
           &larr; Go Back
         </button>
       </div>
-      <div className="p-6 max-w-5xl mx-auto">
-        {filtered.map((item) => (
-          <div
-            key={item.slug}
-            className="mb-14 flex flex-col items-center text-center"
-          >
-            <img
-              src={resolveImage(item.image.mobile)}
-              alt={item.name}
-              className="rounded-xl mb-4"
-            />
-            <h2 className="text-2xl font-bold">{item.name}</h2>
-            <p className="my-4 text-gray-600">{item.description}</p>
-            <button
-              onClick={() => navigate(`/product/${item.slug}`)}
-              className="bg-[#d87d4a] text-white px-6 py-3 rounded"
+      <div className="py-6 w-5/6 mx-auto">
+        {filtered.map((item, index) => {
+          const isEven = index % 2 === 0;
+
+          return (
+            <div
+              key={item.slug}
+              className={`mb-14 flex flex-col items-center text-center md:flex-row ${
+                !isEven ? "md:flex-row-reverse" : ""
+              } md:items-center md:gap-10 md:text-left`}
             >
-              SEE PRODUCT
-            </button>
-          </div>
-        ))}
+              <img
+                src={resolveImage(item.image.desktop)}
+                alt={item.name}
+                className="rounded-xl mb-6 md:w-1/2"
+              />
+              <div className="md:w-1/2">
+                <h2 className="text-2xl font-bold uppercase">{item.name}</h2>
+                <p className="my-4 text-gray-600">{item.description}</p>
+                <button
+                  onClick={() => navigate(`/product/${item.slug}`)}
+                  className="bg-[#d87d4a] text-white px-6 py-3 rounded cursor-pointer hover:opacity-70"
+                >
+                  SEE PRODUCT
+                </button>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <HeadOverlay />
       <FooterOverlay />
