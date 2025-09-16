@@ -46,7 +46,7 @@ function Footer() {
             <span className="text-[#ffffff80] text-center md:text-left">
               Audiophile is an all in one stop to fulfill your audio needs.
               We're a small team of music lovers and sound specialists who are
-              devoted to helping you getthe most out of personal audio. Come and
+              devoted to helping you get the most out of personal audio. Come and
               visit our demo facility - we’re open 7 days a week.
             </span>
             <span className="text-[#ffffff80] md:mt-8">
